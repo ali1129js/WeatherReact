@@ -2,12 +2,13 @@
  * @Author: Ali
  * @Date:   2018-05-05T17:04:42+02:00
  * @Last modified by:   Ali
- * @Last modified time: 2018-05-05T19:45:33+02:00
+ * @Last modified time: 2018-05-05T21:41:44+02:00
  */
 import React, { Component, Fragment } from 'react'
 import Form from './Components/Form'
 import Weather from './Components/Weather'
 const API_KEY = '32941f4c12936fc51133cb69ca8f8b8a'
+
 class App extends Component {
   constructor(){
     super()
@@ -106,4 +107,7 @@ class MyComponent extends React.Component {
     }
   }
 }
+
+city = e.target.elemnets/city.value
+http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=API_ALI
 */
