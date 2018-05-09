@@ -2,11 +2,13 @@
  * @Author: Ali
  * @Date:   2018-05-05T17:04:42+02:00
  * @Last modified by:   Ali
- * @Last modified time: 2018-05-05T21:41:44+02:00
+ * @Last modified time: 2018-05-09T11:22:48+02:00
  */
 import React, { Component, Fragment } from 'react'
 import Form from './Components/Form'
 import Weather from './Components/Weather'
+import AppBar from './Components/AppBar'
+import {MuiThemeProvider} from 'material-ui/styles'
 const API_KEY = '32941f4c12936fc51133cb69ca8f8b8a'
 
 class App extends Component {
@@ -39,17 +41,20 @@ class App extends Component {
   }
   render() {
     return (
-    <Fragment>
-      <Form getWeather={this.getWeather}/>
-      <Weather
-        temperature={this.state.temperature}
-        humidity={this.state.humidity}
-        city={this.state.city}
-        country={this.state.country}
-        description={this.state.description}
-        error={this.state.error}
-      />
-    </Fragment>
+      <MuiThemeProvider>
+        <Fragment>
+          <AppBar />
+          <Form getWeather={this.getWeather}/>
+          <Weather
+            temperature={this.state.temperature}
+            humidity={this.state.humidity}
+            city={this.state.city}
+            country={this.state.country}
+            description={this.state.description}
+            error={this.state.error}
+          />
+        </Fragment>
+      </MuiThemeProvider>
     )
   }
 }
