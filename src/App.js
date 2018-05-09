@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2018-05-05T17:04:42+02:00
  * @Last modified by:   Ali
- * @Last modified time: 2018-05-09T13:20:21+02:00
+ * @Last modified time: 2018-05-09T14:36:39+02:00
  */
 import React, { Component } from 'react'
 import Form from './Components/Form'
@@ -31,7 +31,7 @@ class App extends Component {
     const country = e.target.elements.country.value
     const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric`)
     const data = await api_call.json()
-    if (city && country){
+    if (data.main ){
       console.log(data)
       this.setState({
         temperature: data.main.temp,
@@ -40,6 +40,16 @@ class App extends Component {
         humidity: data.main.humidity,
         description: data.weather[0].description,
         error: ''
+      })
+    }
+    if(data.cod){
+      this.setState({
+        temperature: undefined,
+        city: undefined,
+        country: undefined,
+        humidity: undefined,
+        description: undefined,
+        error: 'City not Found'
       })
     }
     else {
