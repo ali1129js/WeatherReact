@@ -2,13 +2,12 @@
  * @Author: Ali
  * @Date:   2018-05-05T17:04:42+02:00
  * @Last modified by:   Ali
- * @Last modified time: 2018-05-09T16:02:35+02:00
+ * @Last modified time: 2018-05-10T16:52:11+02:00
  */
 import React, { Component } from 'react'
 import Form from './Components/Form'
 import Weather from './Components/Weather'
 //import AppBar from './Components/AppBar'
-
 
 const API_KEY = '32941f4c12936fc51133cb69ca8f8b8a'
 
@@ -29,8 +28,9 @@ class App extends Component {
     const city = e.target.elements.city.value
     const country = e.target.elements.country.value
     const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric`)
+
     const data = await api_call.json()
-    if (data.main ){
+     if(data.main) {
       console.log(data)
       this.setState({
         temperature: data.main.temp,
@@ -41,38 +41,31 @@ class App extends Component {
         error: ''
       })
     }
-    else {
+    else if(data.cod){
       this.setState({
         temperature: undefined,
         city: undefined,
         country: undefined,
         humidity: undefined,
         description: undefined,
-        error: 'Please enter the values'
+        error: 'City not Found'
       })
     }
   }
   render() {
     return (
-          <div className="wrapper">
-            <div className="main">
-              <div className="container">
-                <div className="row">
-                  <div className="col-xs-7 form-container">
-                    <Form getWeather={this.getWeather} />
-                    <Weather
-                      temperature={this.state.temperature}
-                      humidity={this.state.humidity}
-                      city={this.state.city}
-                      country={this.state.country}
-                      description={this.state.description}
-                      error={this.state.error}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div className="col-xs-7 form-container">
+        <Form getWeather={this.getWeather} />
+        <Weather
+          temperature={this.state.temperature}
+          humidity={this.state.humidity}
+          city={this.state.city}
+          country={this.state.country}
+          description={this.state.description}
+          error={this.state.error}
+        />
+
+      </div>
     )
   }
 }
