@@ -2,12 +2,12 @@
  * @Author: Ali
  * @Date:   2018-05-05T17:04:42+02:00
  * @Last modified by:   Ali
- * @Last modified time: 2018-05-10T16:52:11+02:00
+ * @Last modified time: 2018-05-12T13:29:32+02:00
  */
 import React, { Component } from 'react'
-import Form from './Components/Form'
+//import Form from './Components/Form'
 import Weather from './Components/Weather'
-//import AppBar from './Components/AppBar'
+import AppBar from './Components/AppBar'
 
 const API_KEY = '32941f4c12936fc51133cb69ca8f8b8a'
 
@@ -22,13 +22,12 @@ class App extends Component {
       description: undefined,
       error: undefined
     }
+    this.newCity = React.createRef()
+    this.newCountry = React.createRef()
   }
   getWeather = async (e) => {
     e.preventDefault()
-    const city = e.target.elements.city.value
-    const country = e.target.elements.country.value
-    const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric`)
-
+    const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${this.newCity.current.value},${this.newCountry.current.value}&appid=${API_KEY}&units=metric`)
     const data = await api_call.json()
      if(data.main) {
       console.log(data)
@@ -54,9 +53,13 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="col-xs-7 form-container">
-        <Form getWeather={this.getWeather} />
-        <Weather
+      <div className="conatiner">
+        <AppBar
+          getWeather={this.getWeather}
+          newCity = {this.newCity}
+          newCountry = {this.newCountry}
+         />
+          <Weather
           temperature={this.state.temperature}
           humidity={this.state.humidity}
           city={this.state.city}
@@ -64,9 +67,13 @@ class App extends Component {
           description={this.state.description}
           error={this.state.error}
         />
-
       </div>
     )
   }
 }
 export default App
+/*
+<Form getWeather={this.getWeather} />
+const city = e.target.elements.city.value
+const country = e.target.elements.country.value
+*/
