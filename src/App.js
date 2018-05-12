@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2018-05-05T17:04:42+02:00
  * @Last modified by:   Ali
- * @Last modified time: 2018-05-12T20:42:04+02:00
+ * @Last modified time: 2018-05-12T20:45:50+02:00
  */
 import React, { Component } from 'react'
 import MyModal from './Components/MyModal'
@@ -25,8 +25,13 @@ class App extends Component {
 
     this.newCity = React.createRef()
     this.newCountry = React.createRef()
+    this.toggleModal = this.toggleModal.bind(this)
   }
-
+  toggleModal = () => {
+   this.setState({
+     isOpen: !this.state.isOpen
+   })
+ }
   getWeather = async (e) => {
     e.preventDefault()
     const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${this.newCity.current.value},${this.newCountry.current.value}&appid=${API_KEY}&units=metric`)
@@ -58,6 +63,7 @@ class App extends Component {
       <div className="conatiner">
         <AppBar
           getWeather={this.getWeather}
+          openModal={this.toggleModal}
           newCity = {this.newCity}
           newCountry = {this.newCountry}
         />
