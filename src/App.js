@@ -2,11 +2,10 @@
  * @Author: Ali
  * @Date:   2018-05-05T17:04:42+02:00
  * @Last modified by:   Ali
- * @Last modified time: 2018-05-12T13:29:32+02:00
+ * @Last modified time: 2018-05-12T14:53:01+02:00
  */
 import React, { Component } from 'react'
-//import Form from './Components/Form'
-import Weather from './Components/Weather'
+import MyModal from './Components/MyModal'
 import AppBar from './Components/AppBar'
 
 const API_KEY = '32941f4c12936fc51133cb69ca8f8b8a'
@@ -58,8 +57,8 @@ class App extends Component {
           getWeather={this.getWeather}
           newCity = {this.newCity}
           newCountry = {this.newCountry}
-         />
-          <Weather
+        />
+        <MyModal
           temperature={this.state.temperature}
           humidity={this.state.humidity}
           city={this.state.city}
@@ -73,7 +72,6 @@ class App extends Component {
 }
 export default App
 /*
-<Form getWeather={this.getWeather} />
 const city = e.target.elements.city.value
 const country = e.target.elements.country.value
 */
