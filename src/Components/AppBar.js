@@ -2,19 +2,15 @@
  * @Author: Ali
  * @Date:   2018-05-08T21:01:10+02:00
  * @Last modified by:   Ali
- * @Last modified time: 2018-05-12T19:57:08+02:00
+ * @Last modified time: 2018-05-12T20:28:57+02:00
  */
  import React, {Component} from 'react'
  import PropTypes from 'prop-types'
  class weatherBar extends Component {
    static propTypes = {
-     newCity:PropTypes.shape({value: PropTypes.instanceOf(HTMLInputElement)})
+     newCity:PropTypes.shape({value: PropTypes.instanceOf(HTMLInputElement)}),
+      newCountry:PropTypes.shape({value: PropTypes.instanceOf(HTMLInputElement)})
    }
-  constructor(props) {
-  super(props)
-
-  }
-
   render(){
     return (
       <div className="container">
@@ -38,10 +34,12 @@
             <button
               className="btn btn-outline-info"
               type="submit"
+
             >
             Search</button>
           </form>
         </nav>
+
       </div>
     )
   }
