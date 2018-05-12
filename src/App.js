@@ -2,9 +2,9 @@
  * @Author: Ali
  * @Date:   2018-05-05T17:04:42+02:00
  * @Last modified by:   Ali
- * @Last modified time: 2018-05-12T20:45:50+02:00
+ * @Last modified time: 2018-05-13T01:10:09+02:00
  */
-import React, { Component } from 'react'
+import React, { Component,createRef } from 'react'
 import MyModal from './Components/MyModal'
 import AppBar from './Components/AppBar'
 
@@ -22,9 +22,8 @@ class App extends Component {
       description: undefined,
       error: undefined
     }
-
-    this.newCity = React.createRef()
-    this.newCountry = React.createRef()
+    this.newCity = createRef()
+    this.newCountry = createRef()
     this.toggleModal = this.toggleModal.bind(this)
   }
   toggleModal = () => {
