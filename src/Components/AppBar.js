@@ -2,10 +2,9 @@
  * @Author: Ali
  * @Date:   2018-05-08T21:01:10+02:00
  * @Last modified by:   Ali
- * @Last modified time: 2018-05-12T19:51:07+02:00
+ * @Last modified time: 2018-05-12T19:57:08+02:00
  */
  import React, {Component} from 'react'
-
  import PropTypes from 'prop-types'
  class weatherBar extends Component {
    static propTypes = {
@@ -13,22 +12,9 @@
    }
   constructor(props) {
   super(props)
-  this.state = { modalIsOpen: false }
-  this.openModal = this.openModal.bind(this)
-  this.afterOpenModal = this.afterOpenModal.bind(this)
-  this.closeModal = this.closeModal.bind(this)
+
   }
-openModal() {
-  this.setState({modalIsOpen: true})
-}
 
-afterOpenModal() {
-  console.log("after")
-}
-
-closeModal() {
-  this.setState({modalIsOpen: false})
-}
   render(){
     return (
       <div className="container">
@@ -52,7 +38,6 @@ closeModal() {
             <button
               className="btn btn-outline-info"
               type="submit"
-              onClick={this.openModal}
             >
             Search</button>
           </form>
