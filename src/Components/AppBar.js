@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2018-05-08T21:01:10+02:00
  * @Last modified by:   Ali
- * @Last modified time: 2018-05-12T20:46:19+02:00
+ * @Last modified time: 2018-05-12T20:50:52+02:00
  */
  import React, {Component} from 'react'
  import PropTypes from 'prop-types'
@@ -16,6 +16,7 @@
       <div className="container">
         <nav className="navbar sticky-top navbar-dark bg-dark">
           <a className="navbar-brand" href="http://openweathermap.org" target='_blanck'>Find Weather</a><br />
+          <br />
           <form className="form-inline" onSubmit={this.props.getWeather}>
             <input
               className="form-control"
@@ -31,6 +32,7 @@
               aria-label="Search"
               ref={this.props.newCountry}
             />
+            
             <button
               className="btn btn-outline-info"
               type="submit"
