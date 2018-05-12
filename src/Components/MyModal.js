@@ -2,9 +2,9 @@
  * @Author: Ali
  * @Date:   2018-05-12T13:41:19+02:00
  * @Last modified by:   Ali
- * @Last modified time: 2018-05-12T20:27:56+02:00
+ * @Last modified time: 2018-05-12T20:42:06+02:00
  */
-import React from 'react'
+import React,{Component} from 'react'
 import styled from 'styled-components'
 const Content = styled.div`
   background: linear-gradient(to bottom right, #3498db ,papayawhip, #f39c12);
@@ -19,16 +19,24 @@ const Content = styled.div`
   padding-top: 10px;
   box-shadow: 8px 10px #7f8c8d;
 `
-const MyModal = props => (
+class MyModal extends Component {
+  render(){
+    if(!this.props.show) {
+      return null;
+    }
+    return(
 
-        <div className="modal-body">
-          <Content>
-            { props.city && props.country && <p>{ props.city},<b>{props.country} </b> </p> }
-            { props.description && <p><i><b> {props.description}</b></i></p>}
-            { props.temperature && <p> Temperature: <strong>{props.temperature}</strong>°C </p>}
-            { props.humidity && <p> Humidity: <b>  {props.humidity} </b> </p>}
-            { props.error && <p> {props.error} </p>}
-          </Content>
-        </div>
-)
+            <div className="modal-body">
+              <Content>
+                { this.props.city && this.props.country && <p>{ this.props.city},<b>{this.props.country} </b> </p> }
+                { this.props.description && <p><i><b> {this.props.description}</b></i></p>}
+                { this.props.temperature && <p> Temperature: <strong>{this.props.temperature}</strong>°C </p>}
+                { this.props.humidity && <p> Humidity: <b>  {this.props.humidity} </b> </p>}
+                { this.props.error && <p> {this.props.error} </p>}
+              </Content>
+            </div>
+    )
+
+  }
+}
 export default MyModal

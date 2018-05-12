@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2018-05-05T17:04:42+02:00
  * @Last modified by:   Ali
- * @Last modified time: 2018-05-12T14:53:01+02:00
+ * @Last modified time: 2018-05-12T20:42:04+02:00
  */
 import React, { Component } from 'react'
 import MyModal from './Components/MyModal'
@@ -14,6 +14,7 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
+      isOpen: false,
       temperature: undefined,
       city: undefined,
       country: undefined,
@@ -21,9 +22,11 @@ class App extends Component {
       description: undefined,
       error: undefined
     }
+
     this.newCity = React.createRef()
     this.newCountry = React.createRef()
   }
+
   getWeather = async (e) => {
     e.preventDefault()
     const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${this.newCity.current.value},${this.newCountry.current.value}&appid=${API_KEY}&units=metric`)
@@ -59,6 +62,8 @@ class App extends Component {
           newCountry = {this.newCountry}
         />
         <MyModal
+          show={this.state.isOpen}
+          onClose={this.toggleModal}
           temperature={this.state.temperature}
           humidity={this.state.humidity}
           city={this.state.city}
