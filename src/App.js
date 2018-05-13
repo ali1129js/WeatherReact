@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2018-05-05T17:04:42+02:00
  * @Last modified by:   Ali
- * @Last modified time: 2018-05-13T01:10:09+02:00
+ * @Last modified time: 2018-05-13T17:03:17+02:00
  */
 import React, { Component,createRef } from 'react'
 import MyModal from './Components/MyModal'
@@ -33,7 +33,7 @@ class App extends Component {
  }
   getWeather = async (e) => {
     e.preventDefault()
-    const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${this.newCity.current.value},${this.newCountry.current.value}&appid=${API_KEY}&units=metric`)
+    const api_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.newCity.current.value},${this.newCountry.current.value}&appid=${API_KEY}&units=metric`)
     const data = await api_call.json()
      if(data.main) {
       console.log(data)
