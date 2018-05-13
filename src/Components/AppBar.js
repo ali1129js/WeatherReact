@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2018-05-08T21:01:10+02:00
  * @Last modified by:   Ali
- * @Last modified time: 2018-05-12T22:18:03+02:00
+ * @Last modified time: 2018-05-13T15:21:33+02:00
  */
  import React, {Component} from 'react'
  //import cities from './cities.json'
@@ -27,7 +27,7 @@
   render(){
     return (
       <div className="container">
-        <nav className="navbar sticky-top navbar-dark bg-dark">
+        <nav className="navbar navbar-dark bg-dark">
           <a className="navbar-brand" href="http://openweathermap.org" target='_blanck'>Find Weather</a><br />
           <br />
           <form className="form-inline" onSubmit={this.props.getWeather}>
