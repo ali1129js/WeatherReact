@@ -2,7 +2,7 @@
  * @Author: Ali
  * @Date:   2018-05-12T13:41:19+02:00
  * @Last modified by:   Ali
- * @Last modified time: 2018-05-13T15:39:17+02:00
+ * @Last modified time: 2018-05-13T16:37:45+02:00
  */
 import React,{Component} from 'react'
 import styled from 'styled-components'
@@ -24,8 +24,8 @@ const backdropStyle = {
   bottom: 0,
   left: 0,
   right: 0,
-  backgroundColor: '#3867d6',
-  padding: 50
+  backgroundColor: '#2d3436',
+  padding: 50,
 }
 class MyModal extends Component {
   render(){
