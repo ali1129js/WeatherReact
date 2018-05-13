@@ -5,9 +5,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Thanks to
 
-[Hamza Mirza](https://github.com/hamza-mirza)
+[Hamza Mirza](https://github.com/hamza-mirza):
 [Using APIs in React](https://youtu.be/204C9yNeOYI)
 
 
-[Dave Ceddia](https://daveceddia.com/)
+[Dave Ceddia](https://daveceddia.com/):
 [Modal Dialogs in React](https://daveceddia.com/open-modal-in-react/)
