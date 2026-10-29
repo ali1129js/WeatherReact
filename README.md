@@ -47,7 +47,7 @@ Colours are defined once in `themes.ts`, applied as CSS variables, and checked b
 
 ## Deploying
 
-`docs/deploy.workflow.yml` is the GitHub Pages workflow. It lives in `docs/` until it is copied to `.github/workflows/`. Nothing is deployed from this branch.
+`.github/workflows/deploy.yml` runs lint, typecheck, tests and build on every push and pull request, and deploys `dist/` to GitHub Pages when `main` or `master` changes (Pages source: GitHub Actions).
 
 ## Credit
 
